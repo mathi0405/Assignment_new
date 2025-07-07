@@ -128,14 +128,14 @@ visuals.py
 '''
 ## ROS & Gazebo Integration
 
-The file `11zon_zip.zip` contains a ROS package to launch a TurtleBot3 simulation in Gazebo with your controllers. To run:
+The file `11zon.zip` contains a ROS package to launch a TurtleBot3 simulation in Gazebo with your controllers. To run:
 
 ## ROS & Gazebo Integration
 
 The file `11zon_zip.zip` contains a ROS package to launch a TurtleBot3 simulation in Gazebo with your controllers. To run:
 
 ```bash
-unzip 11zon_zip.zip
+unzip 11zon.zip
 cd 11zon_pkg
 catkin_make
 source devel/setup.bash
