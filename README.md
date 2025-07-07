@@ -125,3 +125,18 @@ visuals.py
     plot_trajectory(...), plot_error(...), plot_controls(...), plot_costs(...)
 
     CLI entrypoint: python visuals.py --log_dir logs --fig_dir figures
+'''
+## ROS & Gazebo Integration
+
+The file `11zon_zip.zip` contains a ROS package to launch a TurtleBot3 simulation in Gazebo with your controllers. To run:
+
+## ROS & Gazebo Integration
+
+The file `11zon_zip.zip` contains a ROS package to launch a TurtleBot3 simulation in Gazebo with your controllers. To run:
+
+```bash
+unzip 11zon_zip.zip
+cd 11zon_pkg
+catkin_make
+source devel/setup.bash
+roslaunch turtlebot3_control my_control.launch
