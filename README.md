@@ -1,5 +1,5 @@
 # Assignment_new
-# 3-Wheel Robot Tracking — Experiments A,B,C
+# Mobile Robot Tracking — Experiments A,B,C
 
 ## 📖 Overview
 This project implements and compares three feedback control strategies for a non-holonomic 3-wheel robot (unicycle model):
