@@ -1,8 +1,3 @@
-"""
-Contains an interface class `animator` along with concrete realizations, each of which is associated with a corresponding system.
-
-"""
-
 import numpy as np
 import numpy.linalg as la
 
