@@ -1,8 +1,3 @@
-"""
-Preset: a 3-wheel robot (kinematic model a. k. a. non-holonomic integrator).
-
-"""
-  
 import pathlib  
   
 import warnings
