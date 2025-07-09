@@ -1,8 +1,3 @@
-```python
-"""
-Contains controllers a.k.a. agents.
-"""
-
 from utilities import dss_sim
 from utilities import rep_mat
 from utilities import uptria2vec
