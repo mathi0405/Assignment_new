@@ -23,6 +23,8 @@ import math
 # For debugging purposes
 from tabulate import tabulate
 import os
+from scipy.linalg import solve_discrete_are
+import numpy as np
 
 def kinematic_controller(x, x_ref, gains):
     """
@@ -575,3 +577,32 @@ class ControllerOptimalPredictive:
     
         else:
             return self.action_curr
+
+
+class LQR:
+    def __init__(self, A, B, Q, R, observation_target, sampling_time=0.1):
+        self.A = A  # system matrix
+        self.B = B  # input matrix
+        self.Q = Q  # state cost matrix
+        self.R = R  # input cost matrix
+        self.observation_target = observation_target  # desired output state
+        self.K = self.compute_gain()  # feedback gain
+        self.sampling_time = sampling_time
+        self.ctrl_clock = 0.0
+        self.action_curr = np.zeros(B.shape[1])  # initialized control
+
+    def compute_gain(self):
+        # Solve Discrete Algebraic Riccati Equation
+        P = solve_discrete_are(self.A, self.B, self.Q, self.R)
+        # Compute LQR gain matrix K
+        K = np.linalg.inv(self.R + self.B.T @ P @ self.B) @ (self.B.T @ P @ self.A)
+        return K
+
+    def compute_action(self, t, observation):
+        # Update control only at defined intervals
+        if t >= self.ctrl_clock + self.sampling_time - 1e-6:
+            self.ctrl_clock = t
+            error = observation - self.observation_target
+            u = -self.K @ error
+            self.action_curr = u
+        return self.action_curr
